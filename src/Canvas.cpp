@@ -1,11 +1,13 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Canvas.hpp"
+#include <cmath>
 using std::cout; 
 
 Canvas::Canvas(int width, int height){
     pendulum = new Pendulum(10, 200);
 
+    // pendulum->setAngle(-M_PI_2);
     sf::ContextSettings settings; 
     settings.antialiasingLevel = 15; 
     window.create(sf::VideoMode(width, height), "Pendulum", sf::Style::Titlebar | sf::Style::Close, settings);
@@ -42,9 +44,12 @@ void Canvas::handleEvents(){
     }
 }
 void Canvas::update(float dt){
+    float angle = pendulum->getAngle(); 
+    angle += 0.001;
+    if(angle > M_PI_2) angle = M_PI_2; 
+    else if(angle < -M_PI_2) angle = -M_PI_2;  
 
-
-
+    pendulum->setAngle(angle);
 }
 void Canvas::render(){
     window.clear(sf::Color::Black); 
