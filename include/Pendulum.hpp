@@ -23,6 +23,9 @@ class Pendulum{
         float getAngle(){
             return angle; 
         }
+        float getLength(){
+            return rodLength;
+        }
         sf::CircleShape getBallShape(){
             return ball;
         }

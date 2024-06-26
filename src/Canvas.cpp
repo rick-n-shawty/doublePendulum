@@ -4,10 +4,12 @@
 #include <cmath>
 using std::cout; 
 
+float ANGLE = -M_PI_2; 
+
 Canvas::Canvas(int width, int height){
     pendulum = new Pendulum(10, 200);
 
-    // pendulum->setAngle(-M_PI_2);
+    pendulum->setAngle(ANGLE);
     sf::ContextSettings settings; 
     settings.antialiasingLevel = 15; 
     window.create(sf::VideoMode(width, height), "Pendulum", sf::Style::Titlebar | sf::Style::Close, settings);
@@ -44,12 +46,10 @@ void Canvas::handleEvents(){
     }
 }
 void Canvas::update(float dt){
-    float angle = pendulum->getAngle(); 
-    angle += 0.001;
-    if(angle > M_PI_2) angle = M_PI_2; 
-    else if(angle < -M_PI_2) angle = -M_PI_2;  
-
-    pendulum->setAngle(angle);
+    // float omega = sqrt(G / pendulum->getLength());
+    // float dtheta_dt = - ANGLE * omega * sin(omega * dt);
+    // float theta = pendulum->getAngle() + dtheta_dt; 
+    // pendulum->setAngle(theta);
 }
 void Canvas::render(){
     window.clear(sf::Color::Black); 
@@ -60,8 +60,9 @@ void Canvas::render(){
 
 void Canvas::run(){
     while(window.isOpen()){
+        float dt = clock.restart().asSeconds(); 
         handleEvents();
-        update(1); 
+        update(dt); 
         render();
     }
 }

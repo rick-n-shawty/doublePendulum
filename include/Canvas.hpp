@@ -6,7 +6,8 @@
 
 class Canvas{
     private: 
-        sf::RenderWindow window; 
+        sf::RenderWindow window;
+        sf::Clock clock; 
         sf::View view;
         sf::CircleShape circle; 
         Pendulum* pendulum;         
@@ -15,6 +16,9 @@ class Canvas{
         void handleEvents(); 
         void render(); 
 
+
+        const int timeSteps = 100; 
+        const float G = 20;
 
     public: 
         Canvas(int width, int height);
