@@ -6,7 +6,8 @@
 class Canvas{
     private: 
         sf::RenderWindow window; 
-
+        sf::View view;
+        sf::CircleShape circle; 
         void update(float dt); 
         void handleEvents(); 
         void render(); 
