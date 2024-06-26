@@ -6,11 +6,21 @@ class Pendulum{
     private: 
         sf::CircleShape ball;
         sf::Vector2f pivot;
-        float rodLength;
-        sf::VertexArray lines; 
+        sf::VertexArray lines;
+
+        float rodLength = 100;
+        float angle = 20;
     public: 
-        Pendulum(sf::Vector2f fixedPivot, float length, float radius); 
+        Pendulum(float ballRadius, float length); 
         ~Pendulum();
+
+        sf::CircleShape getBallShape(){
+            return ball;
+        }
+        sf::VertexArray getLines(){
+            return lines;
+        }
+
 };
 
 #endif 

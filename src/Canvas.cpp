@@ -4,16 +4,16 @@
 using std::cout; 
 
 Canvas::Canvas(int width, int height){
-
+    pendulum = new Pendulum(10, 200);
 
     sf::ContextSettings settings; 
-    settings.antialiasingLevel = 10; 
+    settings.antialiasingLevel = 15; 
     window.create(sf::VideoMode(width, height), "Pendulum", sf::Style::Titlebar | sf::Style::Close, settings);
     window.setFramerateLimit(60);
     sf::Vector2u windowSize = window.getSize(); 
 
     view.setSize(sf::Vector2f(windowSize.x, windowSize.y));
-    view.setCenter(sf::Vector2f(0,0));
+    view.setCenter(sf::Vector2f(0,300));
     window.setView(view);
 
 
@@ -26,7 +26,12 @@ Canvas::Canvas(int width, int height){
 
 };
 
-Canvas::~Canvas(){};
+Canvas::~Canvas(){
+    if(pendulum != nullptr){
+        delete pendulum; 
+        pendulum = nullptr;
+    }
+};
 
 void Canvas::handleEvents(){
     sf::Event event; 
@@ -43,7 +48,8 @@ void Canvas::update(float dt){
 }
 void Canvas::render(){
     window.clear(sf::Color::Black); 
-    window.draw(circle);
+    window.draw(pendulum->getBallShape());
+    window.draw(pendulum->getLines());
     window.display();
 }
 

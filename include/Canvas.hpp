@@ -1,3 +1,4 @@
+#include "Pendulum.hpp"
 #include <SFML/Graphics.hpp> 
 #ifndef CANVAS_HPP 
 #define CANVAS_HPP 
@@ -8,6 +9,8 @@ class Canvas{
         sf::RenderWindow window; 
         sf::View view;
         sf::CircleShape circle; 
+        Pendulum* pendulum;         
+
         void update(float dt); 
         void handleEvents(); 
         void render(); 
