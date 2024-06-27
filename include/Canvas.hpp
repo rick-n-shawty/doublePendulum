@@ -9,7 +9,6 @@ class Canvas{
         sf::RenderWindow window;
         sf::Clock clock; 
         sf::View view;
-        sf::CircleShape circle; 
         Pendulum* pendulum;         
 
         void update(float dt); 
@@ -18,7 +17,7 @@ class Canvas{
 
 
         const int timeSteps = 100; 
-        const float G = 0.1;
+        const float G = 0.01;
 
     public: 
         Canvas(int width, int height);

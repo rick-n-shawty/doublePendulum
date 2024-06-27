@@ -20,15 +20,6 @@ Canvas::Canvas(int width, int height){
     view.setSize(sf::Vector2f(windowSize.x, windowSize.y));
     view.setCenter(sf::Vector2f(0,300));
     window.setView(view);
-
-
-
-
-    circle.setRadius(10); 
-    circle.setOrigin(sf::Vector2f(10,10));
-    circle.setFillColor(sf::Color::White); 
-    circle.setPosition(sf::Vector2f(-200,0));
-
 };
 
 Canvas::~Canvas(){
