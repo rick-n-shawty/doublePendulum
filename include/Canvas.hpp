@@ -18,7 +18,7 @@ class Canvas{
 
 
         const int timeSteps = 100; 
-        const float G = 20;
+        const float G = 0.1;
 
     public: 
         Canvas(int width, int height);

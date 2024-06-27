@@ -14,7 +14,7 @@ Pendulum::Pendulum(float ballMass, float length) : lines(sf::LineStrip, 2){
     ball.setPosition(sf::Vector2f(x, y));
 
 
-
+    angleAccelaration = -1 * sin(angle) * 1; 
 
     lines[0].position = pivot; 
     lines[0].color = sf::Color::Red;
