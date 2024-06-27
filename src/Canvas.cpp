@@ -39,7 +39,7 @@ void Canvas::update(float dt){
     pendulum->update(G, dt);
 }
 void Canvas::render(){
-    window.clear(sf::Color::Black); 
+    window.clear(sf::Color::White); 
     pendulum->show(window);    
     window.display();
 }

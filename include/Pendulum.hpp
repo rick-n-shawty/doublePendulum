@@ -6,6 +6,8 @@
 class Pendulum{
     private: 
         sf::Vector2f pivot;
+        sf::VertexArray trace;
+
 
         // ballOne 
         sf::CircleShape ballOne; 
@@ -70,7 +72,7 @@ class Pendulum{
             lineTwo->setPivotPoint(ballOne.getPosition());
             lineTwo->setLoosePoint(ballTwo.getPosition());
 
-
+            trace.append(sf::Vertex(ballTwo.getPosition(), sf::Color::Blue));
 
             // float force = sin(angle) * G;
             // angleAccelaration = (-1 * force); 
@@ -88,6 +90,7 @@ class Pendulum{
             lineTwo->show(window); 
             window.draw(ballOne); 
             window.draw(ballTwo);
+            window.draw(trace);
         }
 
 };
