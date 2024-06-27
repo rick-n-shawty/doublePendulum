@@ -81,6 +81,17 @@ class Pendulum{
             window.draw(ballTwo);
             window.draw(trace);
         }
+        void setTraceColor(sf::Color color){
+            traceColor = color; 
+        }
+        void setRodColor(sf::Color color){
+            lineOne->setColor(color);
+            lineTwo->setColor(color);
+        }
+        void setBallColor(sf::Color color){
+            ballOne.setFillColor(color); 
+            ballTwo.setFillColor(color);
+        }
 
 };
 

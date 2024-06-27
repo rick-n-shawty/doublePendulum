@@ -1,6 +1,7 @@
 #include "Pendulum.hpp"
 #include <SFML/Graphics.hpp> 
 #include "Line.hpp"
+#include <vector>
 #ifndef CANVAS_HPP 
 #define CANVAS_HPP 
 
@@ -11,6 +12,7 @@ class Canvas{
         sf::Clock clock; 
         sf::View view;
         Pendulum* pendulum;         
+        std::vector<Pendulum*> pendulums; 
 
         void update(float dt); 
         void handleEvents(); 
