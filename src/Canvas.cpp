@@ -27,6 +27,7 @@ Canvas::Canvas(int width, int height, int pendulumsNum){
         pendulums.push_back(new Pendulum(initialAngleOne, initialAngleTwo, 200, 200, 5, 5));
         pendulums[i]->setBallColor(sf::Color::White);
         pendulums[i]->setRodColor(sf::Color::White);
+        pendulums[i]->setTraceColor(sf::Color(0,71,171));
 
         initialAngleOne += deltaAngle; 
         initialAngleTwo += deltaAngle; 
