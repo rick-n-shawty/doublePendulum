@@ -20,7 +20,7 @@ float randomFloat(float min, float max){
 Canvas::Canvas(int width, int height, int pendulumsNum){
     initialAngleOne = randomFloat(-M_PI, M_PI); 
     initialAngleTwo = randomFloat(-M_PI, M_PI);
-    deltaAngle = 0.01; 
+    deltaAngle = 0.00001; 
     
 
     for(int i = 0; i < pendulumsNum; i++){
