@@ -5,6 +5,7 @@ Pendulum::Pendulum(float angle1, float angle2, float L1 ,float L2, float r1, flo
     pivot = sf::Vector2f(0,0);
     lengthOne = L1; 
     lengthTwo = L2; 
+    traceColor = sf::Color::Blue; 
 
 
     angleOne = angle1; 

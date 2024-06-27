@@ -7,7 +7,7 @@ class Pendulum{
     private: 
         sf::Vector2f pivot;
         sf::VertexArray trace;
-
+        sf::Color traceColor;
 
         // ballOne 
         sf::CircleShape ballOne; 
@@ -72,18 +72,7 @@ class Pendulum{
             lineTwo->setPivotPoint(ballOne.getPosition());
             lineTwo->setLoosePoint(ballTwo.getPosition());
 
-            trace.append(sf::Vertex(ballTwo.getPosition(), sf::Color::Blue));
-
-            // float force = sin(angle) * G;
-            // angleAccelaration = (-1 * force); 
-            // angleVelocity += angleAccelaration; 
-            // angle += angleVelocity; 
-
-            // float x = sin(angle) * rodLength; 
-            // float y = cos(angle) * rodLength; 
-            // ball.setPosition(sf::Vector2f(x, y)); 
-            // line->setLoosePoint(ball.getPosition());
-
+            trace.append(sf::Vertex(ballTwo.getPosition(), traceColor));
         }
         void show(sf::RenderWindow& window){
             lineOne->show(window);
