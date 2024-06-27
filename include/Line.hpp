@@ -1,6 +1,5 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "Utils.hpp"
 #ifndef LINE_HPP 
 #define LINE_HPP 
 
