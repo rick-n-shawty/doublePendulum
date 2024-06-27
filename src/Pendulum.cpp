@@ -1,15 +1,15 @@
 #include "Pendulum.hpp"
 
 
-Pendulum::Pendulum(float ballRadius, float length) : lines(sf::LineStrip, 2){
+Pendulum::Pendulum(float ballMass, float length) : lines(sf::LineStrip, 2){
     pivot = sf::Vector2f(0,0);
     rodLength = length;
 
 
     float x = rodLength * sin(angle); 
     float y = rodLength * cos(angle);
-    ball.setRadius(ballRadius);
-    ball.setOrigin(sf::Vector2f(ballRadius, ballRadius));
+    ball.setRadius(mass);
+    ball.setOrigin(sf::Vector2f(mass, mass));
     ball.setFillColor(sf::Color::White);
     ball.setPosition(sf::Vector2f(x, y));
 

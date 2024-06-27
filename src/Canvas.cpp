@@ -46,10 +46,12 @@ void Canvas::handleEvents(){
     }
 }
 void Canvas::update(float dt){
-    // float omega = sqrt(G / pendulum->getLength());
-    // float dtheta_dt = - ANGLE * omega * sin(omega * dt);
-    // float theta = pendulum->getAngle() + dtheta_dt; 
-    // pendulum->setAngle(theta);
+
+
+    float omega = sqrt(G / pendulum->getLength());
+    float dtheta_dt = - ANGLE * omega * cos(omega * dt);
+    float theta = pendulum->getAngle() + dtheta_dt; 
+    pendulum->setAngle(theta);
 }
 void Canvas::render(){
     window.clear(sf::Color::Black); 

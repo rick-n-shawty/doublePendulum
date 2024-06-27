@@ -10,8 +10,9 @@ class Pendulum{
 
         float rodLength = 100;
         float angle = 0;
+        float mass = 10; 
     public: 
-        Pendulum(float ballRadius, float length); 
+        Pendulum(float ballMass, float length); 
         ~Pendulum();
         void setAngle(float a){
             angle = a; 
