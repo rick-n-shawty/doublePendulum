@@ -1,5 +1,6 @@
 #include "Pendulum.hpp"
 #include <SFML/Graphics.hpp> 
+#include "Line.hpp"
 #ifndef CANVAS_HPP 
 #define CANVAS_HPP 
 
@@ -16,14 +17,11 @@ class Canvas{
         void render(); 
 
 
-        const int timeSteps = 100; 
         const float G = 0.01;
-
+        const float airDrag = 0.99; 
     public: 
         Canvas(int width, int height);
         ~Canvas(); 
         void run(); 
 };
-
-
 #endif 

@@ -1,68 +1,61 @@
 #include <SFML/Graphics.hpp>
+#include "Line.hpp"
 #ifndef PENDULUM_HPP 
 #define PENDULUM_HPP 
 
 class Pendulum{
     private: 
-        sf::CircleShape ball;
         sf::Vector2f pivot;
-        sf::VertexArray lines;
 
-        float rodLength = 100;
-        float angle = 0;
-        float mass = 10; 
-        float angleVelocity = 0; 
-        float angleAccelaration = 0; 
+        // ballOne 
+        sf::CircleShape ballOne; 
+        sf::Vector2f ballOnePos; 
+        float angleOne = 0;
+        float lengthOne = 100;
+        float radiusOne = 10;
+        float massOne = 10; 
+        Line* lineOne; 
+        float velocityOne = 0; // angular
+        float accelerationOne = 0; // angular
+        // 
+
+        // ballTwo
+        sf::CircleShape ballTwo;  
+        sf::Vector2f ballTwoPos;
+        float angleTwo = 0;
+        float lengthTwo = 100;
+        float radiusTwo = 10; 
+        float massTwo = 10; 
+        Line* lineTwo;
+        float velocityTwo = 0; // angular
+        float accelerationTwo = 0; // angular
+        //
+
+
     public: 
-        Pendulum(float ballMass, float length); 
+        Pendulum(float angle1, float angle2, float L1, float L2, float r1, float r2); 
         ~Pendulum();
-        void setAngle(float a){
-            angle = a; 
-            float x = rodLength * sin(angle); 
-            float y = rodLength * cos(angle); 
-            ball.setPosition(sf::Vector2f(x, y));
-            lines[1].position = ball.getPosition();
-        }
-        float getAngle(){
-            return angle; 
-        }
-        float getLength(){
-            return rodLength;
-        }
-        float getAngularVel(){
-            return angleVelocity; 
-        }
-        float getAngularAcc(){
-            return angleAccelaration; 
-        }
-        void setAngularAcc(float num){
-            angleAccelaration = num; 
-        }
-        void setAngularVel(float num){
-            angleVelocity = num;
-        }
         void update(const float& G, const float& dt){
-            float force = sin(angle) * G;
-            angleAccelaration = (-1 * force); 
-            angleVelocity += angleAccelaration; 
-            angle += angleVelocity; 
+            // float force = sin(angle) * G;
+            // angleAccelaration = (-1 * force); 
+            // angleVelocity += angleAccelaration; 
+            // angle += angleVelocity; 
 
-            float x = sin(angle) * rodLength; 
-            float y = cos(angle) * rodLength; 
-            ball.setPosition(sf::Vector2f(x, y)); 
-            lines[1].position = ball.getPosition();
+            // float x = sin(angle) * rodLength; 
+            // float y = cos(angle) * rodLength; 
+            // ball.setPosition(sf::Vector2f(x, y)); 
+            // line->setLoosePoint(ball.getPosition());
 
         }
-        sf::CircleShape getBallShape(){
-            return ball;
+        void show(sf::RenderWindow& window){
+            lineOne->show(window);
+            lineTwo->show(window); 
+            window.draw(ballOne); 
+            window.draw(ballTwo);
         }
-        sf::VertexArray getLines(){
-            return lines;
-        }
-
         void load(const float& G){
-            angleAccelaration = -1 * sin(angle) * G; 
-            angleVelocity += angleAccelaration;
+            // angleAccelaration = -1 * sin(angle) * G; 
+            // angleVelocity += angleAccelaration;
         }
 
 };

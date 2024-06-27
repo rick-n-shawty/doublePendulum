@@ -7,7 +7,7 @@ using std::cout;
 float ANGLE = -M_PI_2 / 2; 
 
 Canvas::Canvas(int width, int height){
-    pendulum = new Pendulum(10, 200);
+    pendulum = new Pendulum(ANGLE, 0, 200, 200, 10, 10);
     pendulum->setAngle(ANGLE);
     pendulum->load(G);
 
@@ -42,8 +42,7 @@ void Canvas::update(float dt){
 }
 void Canvas::render(){
     window.clear(sf::Color::Black); 
-    window.draw(pendulum->getBallShape());
-    window.draw(pendulum->getLines());
+    pendulum->show(window);    
     window.display();
 }
 
