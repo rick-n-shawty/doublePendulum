@@ -2,15 +2,35 @@
 #include <SFML/Graphics.hpp>
 #include "Canvas.hpp"
 #include <cmath>
+#include <random>
 using std::cout; 
 
 float ANGLE = -M_PI_2; 
 
-Canvas::Canvas(int width, int height){
-    pendulum = new Pendulum(ANGLE, M_PI_2, 200, 200, 5, 5);
-    pendulum->setRodColor(sf::Color(0,128,128));
-    pendulum->setBallColor(sf::Color(255,236,209));
-    pendulum->setTraceColor(sf::Color(128,0,32));
+
+float randomFloat(float min, float max){
+    std::random_device rd; 
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<float> distribution(min, max);
+    float randomFloat = distribution(gen);
+    return randomFloat;
+}
+
+
+Canvas::Canvas(int width, int height, int pendulumsNum){
+    initialAngleOne = randomFloat(-M_PI, M_PI); 
+    initialAngleTwo = randomFloat(-M_PI, M_PI);
+    deltaAngle = 0.01; 
+    
+
+    for(int i = 0; i < pendulumsNum; i++){
+        pendulums.push_back(new Pendulum(initialAngleOne, initialAngleTwo, 200, 200, 5, 5));
+        pendulums[i]->setBallColor(sf::Color::White);
+        pendulums[i]->setRodColor(sf::Color::White);
+
+        initialAngleOne += deltaAngle; 
+        initialAngleTwo += deltaAngle; 
+    }
 
 
     sf::ContextSettings settings; 
@@ -25,16 +45,8 @@ Canvas::Canvas(int width, int height){
 };
 
 Canvas::~Canvas(){
-    if(pendulum != nullptr){
-        delete pendulum; 
-        pendulum = nullptr;
-    }
-
     for(int i = 0; i < pendulums.size(); i++){
-        if(pendulums[i] != nullptr){
-            delete pendulums[i];
-            pendulums[i] = nullptr;
-        }
+        delete pendulums[i];
     }
 };
 
@@ -47,11 +59,15 @@ void Canvas::handleEvents(){
     }
 }
 void Canvas::update(float dt){
-    pendulum->update(G, dt);
+    for(int i = 0; i < pendulums.size(); i++){
+        pendulums[i]->update(G, airDrag);
+    }
 }
 void Canvas::render(){
     window.clear(sf::Color::Black); 
-    pendulum->show(window);    
+    for(int i = 0; i < pendulums.size(); i++){
+        pendulums[i]->show(window);
+    }
     window.display();
 }
 

@@ -11,7 +11,6 @@ class Canvas{
         sf::RenderWindow window;
         sf::Clock clock; 
         sf::View view;
-        Pendulum* pendulum;         
         std::vector<Pendulum*> pendulums; 
 
         void update(float dt); 
@@ -21,8 +20,12 @@ class Canvas{
 
         const float G = 0.1;
         const float airDrag = 0.99; 
+        float initialAngleOne = 0; 
+        float initialAngleTwo = 0;
+        float deltaAngle = 0;
+
     public: 
-        Canvas(int width, int height);
+        Canvas(int width=1024, int height=1024, int pendulumsNum=1);
         ~Canvas(); 
         void run(); 
 };
