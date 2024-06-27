@@ -17,7 +17,7 @@ class Canvas{
         void render(); 
 
 
-        const float G = 0.01;
+        const float G = 0.1;
         const float airDrag = 0.99; 
     public: 
         Canvas(int width, int height);

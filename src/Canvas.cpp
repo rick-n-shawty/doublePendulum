@@ -4,12 +4,10 @@
 #include <cmath>
 using std::cout; 
 
-float ANGLE = -M_PI_2 / 2; 
+float ANGLE = -M_PI_2; 
 
 Canvas::Canvas(int width, int height){
-    pendulum = new Pendulum(ANGLE, 0, 200, 200, 10, 10);
-    pendulum->setAngle(ANGLE);
-    pendulum->load(G);
+    pendulum = new Pendulum(ANGLE, M_PI_2, 200, 200, 10, 10);
 
     sf::ContextSettings settings; 
     settings.antialiasingLevel = 15; 
