@@ -27,11 +27,14 @@ Canvas::Canvas(int width, int height, int pendulumsNum){
         pendulums.push_back(new Pendulum(initialAngleOne, initialAngleTwo, 200, 200, 5, 5));
         pendulums[i]->setBallColor(sf::Color::White);
         pendulums[i]->setRodColor(sf::Color::White);
-        pendulums[i]->setTraceColor(sf::Color(0,71,171));
-
+        // pendulums[i]->setTraceColor(sf::Color(i*80,71 + i*80,171 + i*10));
         initialAngleOne += deltaAngle; 
         initialAngleTwo += deltaAngle; 
     }
+    pendulums[0]->setTraceColor(sf::Color(0,71,171));
+    pendulums[1]->setTraceColor(sf::Color(136,8,8));
+    pendulums[2]->setTraceColor(sf::Color(112, 41, 99));
+
 
 
     sf::ContextSettings settings; 
