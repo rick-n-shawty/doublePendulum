@@ -1,6 +1,7 @@
 ### Double Pendulum 
 
 ## Demo 
+![](https://github.com/rick-n-shawty/doublePendulum/blob/main/pendulumPic.png)
 Full Demo can be seen [here](https://youtu.be/EunSZBUEFGY)
 
 ## Background 
