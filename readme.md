@@ -1,8 +1,7 @@
-### Double Pendulum 
+# Double Pendulum 
 
 ## Demo 
-
-# Full Demo can be seen [here](https://youtu.be/EunSZBUEFGY)
+### Full Demo can be seen [here](https://youtu.be/EunSZBUEFGY)
 ![](https://github.com/rick-n-shawty/doublePendulum/blob/main/pendulumPic.png)
 
 ## Background 
