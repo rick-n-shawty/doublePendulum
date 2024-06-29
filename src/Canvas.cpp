@@ -31,9 +31,9 @@ Canvas::Canvas(int width, int height, int pendulumsNum){
         initialAngleOne += deltaAngle; 
         initialAngleTwo += deltaAngle; 
     }
-    pendulums[0]->setTraceColor(sf::Color(0,71,171));
-    pendulums[1]->setTraceColor(sf::Color(136,8,8));
-    pendulums[2]->setTraceColor(sf::Color(112, 41, 99));
+    pendulums[0]->setTraceColor(sf::Color(200,200,0));
+    pendulums[1]->setTraceColor(sf::Color(0,200,208));
+    pendulums[2]->setTraceColor(sf::Color(250, 0, 250));
 
 
 
